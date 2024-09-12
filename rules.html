@@ -43,13 +43,20 @@
             color: #007bff;
         }
         .info-box {
-            display: none;
+            max-height: 0;
+            overflow: hidden;
             margin: 10px 0;
-            padding: 10px;
+            padding: 0 10px;
             border: 1px solid #ddd;
             background-color: #f9f9f9;
             text-align: left;
             font-size: 16px;
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+        }
+        .info-box.open {
+            max-height: 100px;
+            padding: 10px;
         }
         a {
             display: inline-block;
@@ -87,7 +94,9 @@
             
             <li onclick="toggleInfo(6)">7. No promoting</li>
             <div class="info-box">Do not promote other servers, products, or services without permission.</div>
-           
+            
+            <li onclick="toggleInfo(7)">8. Keep content appropriate for >13</li>
+            <div class="info-box">Ensure all shared content is suitable for users above 13 years old. No explicit material allowed.</div>
         </ul>
         <a href="index.html">Back to Homepage</a>
     </div>
@@ -95,11 +104,7 @@
     <script>
         function toggleInfo(index) {
             var infoBoxes = document.getElementsByClassName('info-box');
-            if (infoBoxes[index].style.display === 'none') {
-                infoBoxes[index].style.display = 'block';
-            } else {
-                infoBoxes[index].style.display = 'none';
-            }
+            infoBoxes[index].classList.toggle('open');
         }
     </script>
 </body>
