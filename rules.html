@@ -70,20 +70,21 @@
         a:hover {
             color: #0056b3;
         }
-        .divider {
-            width: 100%;
-            height: 1px;
-            background-color: #ddd;
-            margin: 20px 0;
+        .message-box {
+            margin: 20px auto;
+            padding: 15px;
+            background-color: #e9ecef;
+            border-radius: 8px;
+            font-size: 18px;
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+            color: #555;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Rules</h1>
-        
-        <!-- Top Divider -->
-        <div class="divider"></div>
 
         <ul>
             <li onclick="toggleInfo(0)">1. Be chill 😎</li>
@@ -102,14 +103,12 @@
             <div class="info-box">Keep the conversation relaxed and friendly. Aggression is not welcomed here.</div>
             
             <li onclick="toggleInfo(5)">6. No inappropriate messages/images</li>
-           
-            <p style="font-size: 18px; color: #555; font-family: 'M PLUS Rounded 1c', sans-serif;">
-                Don't forget to follow the Discord rules and have fun :D
-            </p>
         </ul>
 
-        <!-- Bottom Divider -->
-        <div class="divider"></div>
+        <!-- Custom Message Box -->
+        <div class="message-box">
+            Don't forget to follow the Discord rules and have fun :D
+        </div>
 
         <a href="index.html">Back to Homepage</a>
     </div>
