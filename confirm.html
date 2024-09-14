@@ -1,1 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Navigation</title>
+    <!-- Import Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=M+PLUS+Rounded+1c:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Background and body styling */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+        }
 
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('background.jpeg');
+            background-size: cover;
+            background-position: center;
+            filter: blur(8px); /* Adjust the blur level here */
+            z-index: -1; /* Send the background behind the content */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-family: 'Archivo Black', sans-serif;
+            font-weight: 400;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 18px;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-red {
+            background-color: #ff4c4c;
+        }
+
+        .button-red:hover {
+            background-color: #e60000;
+        }
+
+        .button-green {
+            background-color: #28a745;
+        }
+
+        .button-green:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Image -->
+    <div class="background"></div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Are you sure you want to go to the Discord link?</h1>
+        <a href="https://discord.gg/q78pnUYV" class="button button-red">Yes, take me there</a>
+        <a href="index.html" class="button button-green">No, go back</a>
+    </div>
+</body>
+</html>
