@@ -7,56 +7,74 @@
     <title>Mobile Warning</title>
     <style>
         body {
-            font-family: 'M PLUS Rounded 1c', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            height: 100%;
             background-color: #f0f0f0;
-            text-align: center;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
         }
-        .container {
-            max-width: 600px;
+
+        .warning-container {
+            max-width: 500px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.85); /* Slightly transparent */
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.85); /* 15% transparency */
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            border-radius: 15px; /* Rounded corners */
             text-align: center;
         }
+
         h1 {
-            font-family: 'Archivo Black', sans-serif;
-            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
         }
-        .btn {
+
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .button {
             display: inline-block;
             margin: 10px;
             padding: 10px 20px;
             font-size: 16px;
             color: #fff;
             background-color: #007bff;
+            border: none;
+            border-radius: 8px;
             text-decoration: none;
-            border-radius: 5px;
+            cursor: pointer;
         }
-        .btn.confirm {
-            background-color: #28a745; /* Green */
-        }
-        .btn.deny {
-            background-color: #dc3545; /* Red */
-        }
-        .btn:hover {
-            opacity: 0.9;
+
+        .button.deny {
+            background-color: #dc3545;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Warning</h1>
-        <p>This website may not work or look properly on mobile devices. Please use a desktop for the best experience.</p>
-        <a href="index.html" class="btn confirm">Proceed</a>
-        <a href="#" class="btn deny">Cancel</a>
+    <div class="warning-container">
+        <h1>Warning: Mobile Device Detected</h1>
+        <p>This website may not work or look properly on mobile devices.</p>
+        <a href="index.html" class="button">Confirm</a>
+        <a href="javascript:void(0);" class="button deny" onclick="deny()">Deny</a>
     </div>
+
+    <script>
+        function deny() {
+            // Close the tab or redirect to a different page
+            window.location.href = "https://www.google.com";
+        }
+
+        // Check if the user is on a mobile device
+        if (/Mobi|Android/i.test(navigator.userAgent)) {
+            document.querySelector('.warning-container').style.display = 'block';
+        } else {
+            document.querySelector('.warning-container').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
