@@ -12,14 +12,39 @@
             font-family: 'M PLUS Rounded 1c', sans-serif;
             margin: 0;
             padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background-image: url('background.jpeg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
-            background-blur: 8px; /* Apply blur effect to background */
-            color: #333;
+            z-index: -1; /* Send the background behind the content */
         }
+
+        .background::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: inherit;
+            background-size: inherit;
+            background-position: inherit;
+            filter: blur(8px); /* Adjust the blur level here */
+            z-index: -1; /* Send the blur effect behind the content */
+            opacity: 0.6; /* Adjust opacity for desired effect */
+        }
+
         .container {
+            position: relative;
             max-width: 800px;
             margin: 50px auto;
             padding: 20px;
@@ -27,18 +52,20 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             border-radius: 15px; /* Rounded corners */
             text-align: center;
-            position: relative;
             z-index: 1; /* Ensure content appears above the background */
         }
+
         h1 {
             font-family: 'Archivo Black', sans-serif;
             font-weight: 400;
             color: #333;
         }
+
         ul {
             list-style-type: none;
             padding: 0;
         }
+
         li {
             margin: 10px 0;
             font-size: 18px;
@@ -47,9 +74,11 @@
             cursor: pointer;
             transition: color 0.3s;
         }
+
         li:hover {
             color: #007bff;
         }
+
         .info-box {
             max-height: 0;
             overflow: hidden;
@@ -64,10 +93,12 @@
             width: 100%;
             box-sizing: border-box;
         }
+
         .info-box.open {
             max-height: 100px;
             padding: 10px 20px;
         }
+
         a {
             display: inline-block;
             margin-top: 20px;
@@ -75,9 +106,11 @@
             color: #007bff;
             font-weight: 700;
         }
+
         a:hover {
             color: #0056b3;
         }
+
         .message-box {
             margin: 20px auto;
             padding: 15px;
@@ -91,8 +124,9 @@
     </style>
 </head>
 <body>
+    <div class="background"></div>
     <div class="container">
-        <h1>Rules</h1>
+        <h1>Community Rules</h1>
         <ul>
             <li onclick="toggleInfo(0)">1. Be chill</li>
             <div class="info-box">Be chill and kind.</div>
