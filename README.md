@@ -1,4 +1,6 @@
 uhhhmmm this is my website :D
+
+Code for messages:
         
         <div class="post-section">
             <!-- Paste your post HTML code here -->
