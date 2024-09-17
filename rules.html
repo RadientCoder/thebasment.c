@@ -8,16 +8,16 @@
     <!-- Import Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=M+PLUS+Rounded+1c:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'M PLUS Rounded 1c', sans-serif;
+        body, html {
             margin: 0;
             padding: 0;
             height: 100%;
-            overflow: hidden;
+            font-family: 'M PLUS Rounded 1c', sans-serif;
         }
 
+        /* Background */
         .background {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
@@ -25,138 +25,144 @@
             background-image: url('background.jpeg');
             background-size: cover;
             background-position: center;
-            z-index: -1; /* Send the background behind the content */
+            filter: blur(8px);
+            z-index: -1;
         }
 
-        .background::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: inherit;
-            background-size: inherit;
-            background-position: inherit;
-            filter: blur(8px); /* Adjust the blur level here */
-            z-index: -1; /* Send the blur effect behind the content */
-            opacity: 0.6; /* Adjust opacity for desired effect */
-        }
-
+        /* Main container */
         .container {
-            position: relative;
             max-width: 800px;
             margin: 50px auto;
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.85); /* 15% transparency */
+            background-color: rgba(255, 255, 255, 0.85);
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            border-radius: 15px; /* Rounded corners */
+            border-radius: 15px;
             text-align: center;
-            z-index: 1; /* Ensure content appears above the background */
+            z-index: 1;
+            position: relative;
         }
 
         h1 {
             font-family: 'Archivo Black', sans-serif;
             font-weight: 400;
             color: #333;
+            margin-bottom: 30px;
         }
 
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        li {
-            margin: 10px 0;
+        /* Horizontal link style with dividers */
+        .link-container {
             font-size: 18px;
-            color: #555;
             font-weight: 500;
-            cursor: pointer;
+            color: #007bff;
+            margin-top: 20px;
+        }
+
+        .link-container a {
+            color: #007bff;
+            text-decoration: none;
+            margin: 0 10px;
             transition: color 0.3s;
         }
 
-        li:hover {
-            color: #007bff;
-        }
-
-        .info-box {
-            max-height: 0;
-            overflow: hidden;
-            margin: 10px auto;
-            padding: 0 20px;
-            border: 1px solid #ddd;
-            background-color: #f9f9f9;
-            text-align: center;
-            font-size: 16px;
-            font-family: 'M PLUS Rounded 1c', sans-serif;
-            transition: max-height 0.5s ease, padding 0.5s ease;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        .info-box.open {
-            max-height: 100px;
-            padding: 10px 20px;
-        }
-
-        a {
-            display: inline-block;
-            margin-top: 20px;
-            text-decoration: none;
-            color: #007bff;
-            font-weight: 700;
-        }
-
-        a:hover {
+        .link-container a:hover {
             color: #0056b3;
         }
 
-        .message-box {
-            margin: 20px auto;
-            padding: 15px;
-            background-color: #e9ecef;
-            border-radius: 8px;
-            font-size: 18px;
-            font-family: 'M PLUS Rounded 1c', sans-serif;
-            color: #555;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        .link-container span {
+            color: #007bff;
         }
+
+        /* Post section */
+        .post-section {
+            margin-top: 40px;
+            text-align: left;
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .profile-pic {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .username {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .owner {
+            font-size: 14px;
+            color: #888;
+            margin-left: 5px;
+            font-style: italic;
+        }
+
+        .post-content {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* Easily Add New Posts */
+        .post {
+            margin-bottom: 20px;
+        }
+
     </style>
 </head>
 <body>
+
+    <!-- Background Blur -->
     <div class="background"></div>
+
+    <!-- Main Content Container -->
     <div class="container">
         <h1>Community Rules</h1>
-        <ul>
-            <li onclick="toggleInfo(0)">1. Be chill</li>
-            <div class="info-box">Be chill and kind.</div>
-            
-            <li onclick="toggleInfo(1)">2. No racism</li>
-            <div class="info-box">No racism. Pls just no</div>
-            
-            <li onclick="toggleInfo(2)">3. No sexism</li>
-            <div class="info-box">No sexism</div>
-            
-            <li onclick="toggleInfo(3)">4. No homophobia</li>
-            <div class="info-box">No homophobia.</div>
-            
-            <li onclick="toggleInfo(4)">5. No harassment</li>
-            <div class="info-box">No harassment allowed.</div>
-            
-            <li onclick="toggleInfo(5)">6. No inappropriate messages/images</li>
-            <div class="info-box">No. Don't do this.</div>
-        </ul>
+
+        <!-- Horizontal Links with Dividers -->
+        <div class="link-container">
+            <a href="index.html">Homepage</a> 
+            <span>|</span> 
+            <a href="rules.html">View Rules</a> 
+            <span>|</span> 
+            <a href="report.html">Report</a> 
+            <span>|</span> 
+            <a href="confirm.html">Discord Server</a>
+        </div>
+
+        <!-- Post Section -->
+
+        <div class="post-section">
+            <div class="post">
+                <div class="post-header">
+                    <img class="profile-pic" src="https://cdn.discordapp.com/embed/avatars/3.png" alt="Profile Picture">
+                    <div>
+                        <span class="username">Username</span>
+                        <span class="owner">(Owner)</span>
+                    </div>
+                </div>
+                <div class="post-content">
+                    Idk what to say soooo uuhmm hi :D
+                </div>
+            </div>
+        </div>
+
         <!-- Custom Message Box -->
         <div class="message-box">
             Don't forget to follow the Discord rules and have fun :D
         </div>
-        <a href="index.html">Back to Homepage</a>
     </div>
-    <script>
-        function toggleInfo(index) {
-            var infoBoxes = document.getElementsByClassName('info-box');
-            infoBoxes[index].classList.toggle('open');
-        }
-    </script>
+
 </body>
 </html>
