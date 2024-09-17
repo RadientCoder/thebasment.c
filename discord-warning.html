@@ -36,9 +36,9 @@
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
             width: 90%;
-            max-width: 500px;
+            max-width: 400px; /* Adjusted max-width for a more compact design */
             color: #dcddde; /* Light gray for text */
-            margin: 50px auto;
+            margin: 10% auto; /* Center vertically and horizontally */
         }
         h1 {
             font-size: 24px;
@@ -48,7 +48,7 @@
             margin: 20px 0;
         }
         .button {
-            display: block;
+            display: inline-block;
             padding: 15px;
             font-size: 18px;
             font-weight: 500;
@@ -60,6 +60,7 @@
             cursor: pointer;
             transition: background-color 0.3s;
             width: 100%; /* Make the button fill the width of the container */
+            box-sizing: border-box; /* Ensure padding and borders are included in the width */
         }
         .button:hover {
             background-color: #e33e3e; /* Darker orange on hover */
